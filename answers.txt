@@ -1,0 +1,25 @@
+REC #48
+https://challenges.re/48/
+Answer:
+main() 
+{
+   MessageBeep(0xFFFFFFF);//simple beep
+   return 0;
+}
+
+REC #49
+https://challenges.re/49/
+Answer: Sleep by 2 seconds
+main()
+{
+   sleep(2);
+   ret;
+}
+REC #51
+https://challenges.re/51/
+MSVC DEBUG: compiler allocates space for local args. Args wiil be a garbage from sp.
+MSVC /O3  : compiler doesn't allocate any memory and printf prints argv argc env
+
+REC #52
+https://challenges.re/52/
+It prints seconds since 1970's
