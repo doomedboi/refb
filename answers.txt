@@ -23,3 +23,51 @@ MSVC /O3  : compiler doesn't allocate any memory and printf prints argv argc env
 REC #52
 https://challenges.re/52/
 It prints seconds since 1970's
+
+REC #53
+It's because type of string. I didn't look at the generated code but IMO it's because of const char* and char* types.
+
+REC #72
+https://challenges.re/72/#Optimizing%20MSVC%202010
+The first decomposition looks like this:
+f(struct arg):
+if (arg->field1 <= 1000) {
+ printf("error1");
+ ret;
+ }
+if (arg->field2 <= 10) {
+ printf("err2");
+ ret;
+}
+
+double sum = load arg.field_double * 123.0 +
+load arg.field_double2 * 444.0;
+printf("%f", sum);
+printf("%c, %d", arg.char, arg.int);
+
+After that I assume that reversing struct represents something like this:
+
+typedef struct _DUMMY {
+int filed1;
+int field2;
+double field3;
+double field4;
+char field5;
+int field6;
+} dummy, *pdummy;
+
+prettified function:
+void f(struct dummy st)
+{
+if (st->field1 <= 1000) {
+ printf("error1");
+ ret;
+ }
+if (st->field2 <= 10) {
+ printf("err2");
+ ret;
+}
+printf("%f", st->field3 * 123.0 + st->field4 * 444);
+printf("%c, %d", st->field4, st-.field5);
+}
+
