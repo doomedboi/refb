@@ -49,7 +49,7 @@ After that I assume that reversing struct represents something like this:
 
 typedef struct _DUMMY {
 int filed1;
-int field2;
+unsigned field2;
 double field3;
 double field4;
 char field5;
